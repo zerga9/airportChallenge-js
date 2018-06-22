@@ -32,6 +32,7 @@ describe("Airport", function (){
   it("doesn't let plane take off if stormy", function(){
     var plane = "Monarch"
     airport.land(plane)
+    console.log(airport.stormy());
     airport.stormy = true
     airport.takeOff(plane)
     expect(airport.planes).toContain("Monarch")

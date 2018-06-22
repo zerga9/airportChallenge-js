@@ -16,8 +16,9 @@ Airport.prototype.takeOff = function(plane){
 }
 
 Airport.prototype.stormy = function(){
-  if (_.sample(['Stormy', 'Clear', 'Clear', 'Clear']) === 'Stormy'){
+  if (Math.random() < 0.3) {
     return true
+  } else {
+    return false
   }
-
 }
