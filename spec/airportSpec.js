@@ -1,11 +1,13 @@
 describe("Airport", function (){
   var airport;
   var plane;
+  var secondplane;
 
 
   beforeEach(function() {
     airport = new Airport();
-    plane = jasmine.createSpy(plane)
+    plane = jasmine.createSpy('plane')
+    secondplane = jasmine.createSpy('secondplane')
     airport.stormy = false
  });
   it("should have an empty array of planes at the start", function(){
@@ -20,8 +22,10 @@ describe("Airport", function (){
 
   it("should let a plane take off", function(){
     airport.land(plane)
+    airport.land(secondplane)
     airport.takeOff(plane)
     expect(airport.planes).not.toContain(plane)
+    expect(airport.planes).toContain(secondplane)
   })
   it("lets you know which plane has taken off", function(){
     airport.land(plane)
@@ -40,11 +44,11 @@ describe("Airport", function (){
       airport.stormy = true;
     })
   it("doesn't let plane take off if stormy", function(){
-    airport.planes = ["Monarch"]
-    airport.takeOff("Monarch")
-    expect(airport.planes).toContain("Monarch");
+    airport.planes = [plane]
+    airport.takeOff(plane)
+    expect(airport.planes).toContain(plane);
   })
-  it("doesn't let plane land if strormy", function(){
+  it("doesn't let plane land if stormy", function(){
     expect(airport.land(plane)).toEqual("Weather too stormy to land")
   })
   it("doesn't let plane take off if no planes", function(){
