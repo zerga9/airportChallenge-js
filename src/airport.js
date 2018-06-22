@@ -8,4 +8,5 @@ Airport.prototype.land = function(plane){
 
 Airport.prototype.takeOff = function(plane){
    this.planes = this.planes.filter(item => item !== plane)
+   return plane
 }

@@ -22,4 +22,9 @@ describe("Airport", function (){
     airport.takeOff(plane)
     expect(airport.planes).not.toContain("KLM")
   })
+  it("lets you know which plane has taken off", function(){
+    var plane = "KLM"
+    airport.land(plane)
+    expect(airport.takeOff(plane)).toEqual("KLM")
+  })
 })
