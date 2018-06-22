@@ -48,4 +48,9 @@ describe("Airport", function (){
     var plane = "Meppel"
     expect(airport.land(plane)).toEqual("Weather too stormy to land")
   })
+  it("doesn't let plane take off if no planes", function(){
+    var plane = "KazaK"
+    expect(airport.takeOff(plane)).toEqual("No planes to take off");
+
+  })
 })
